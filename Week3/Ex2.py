@@ -9,14 +9,6 @@ def isclose(a, b, rtol=1e-05, atol=1e-08):
 def sigma(z):
 	return 1/(1 + np.exp(-z))
 
-# m = 100
-# X1 = np.random.randint(1000, size=m).astype(dtype=np.float32)
-# X2 = np.random.randint(1000, size=m).astype(dtype=np.float32)
-# Y = np.array([1 if x2 > f(x1) else 0
-# 			for x1, x2 in zip(X1, X2)], dtype=np.float32)
-# for i in range(m):
-# 	if random.random() < 0.03:
-# 		Y[i] = 1 - Y[i] 
 data = pandas.read_csv('ex2data1.txt')
 data = data.to_numpy()
 
