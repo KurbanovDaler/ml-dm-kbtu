@@ -15,6 +15,16 @@ def isclose(a, b, rtol=1e-05, atol=1e-08):
 def sigma(z):
 	return 1/(1 + np.exp(-z))
 
+def ReLU(z) {
+    return z
+}
+def cost_function(X, y, thetas):
+    h = 1/(1 + np.exp(-X.dot(thetas)))
+    cost_1 = np.log(h)
+    cost_2 = np.array([np.log(1-i) for i in h])
+    summ = y.dot(cost_1) + np.array([1-i for i in y]).dot(cost_2)
+    return -summ/m
+
 data = pandas.read_csv('glass.csv')
 
 data = data.sample(frac=1).reset_index(drop=True)
@@ -45,13 +55,6 @@ alpha = 0.7
 dw_s=0
 
 costs = np.zeros((7, 10000))
-
-def cost_function(X, y, thetas):
-    h = 1/(1 + np.exp(-X.dot(thetas)))
-    cost_1 = np.log(h)
-    cost_2 = np.array([np.log(1-i) for i in h])
-    summ = y.dot(cost_1) + np.array([1-i for i in y]).dot(cost_2)
-    return -summ/m
 
 for type in range(7):  
         y = deepcopy(y_data)  
