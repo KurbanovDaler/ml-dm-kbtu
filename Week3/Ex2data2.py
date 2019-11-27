@@ -66,7 +66,7 @@ for i in range(200000):
 
 print(theta)
 
-yy = np.ones(m)
+yy = np.ones(m)m
 red = np.where(isclose(y, yy))
 yy = np.zeros(m)
 blue = np.where(isclose(y, yy))
